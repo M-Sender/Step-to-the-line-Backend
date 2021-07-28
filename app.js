@@ -13,10 +13,10 @@ const io = socketIo(server);
 //DataBase portion
 var mysql = require('mysql2');
 var sessionSQL = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'rootpassword123!',
-  database: 'orientation_tool'
+  host: 'us-cdbr-east-04.cleardb.com',
+  user: 'b57e219bcb3db8',
+  password: 'c6190569',
+  database: 'heroku_66834c3f32d903c'
 });
 sessionSQL.connect(function(err){
   if (err) throw err;
