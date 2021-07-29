@@ -1,7 +1,7 @@
 {
   "name": "socket-io-server",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.9",
+  "description": "Step to the Line Backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "simple-statistics": "^7.7.0",
-    "socket.io": "^4.1.1",
+    "socket.io": "^4.1.3",
     "xmlhttprequest": "^1.8.0"
   }
 }
