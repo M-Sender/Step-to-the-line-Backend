@@ -1,18 +1,18 @@
 //import {config} from './config.js';
-import express from "express";
-import { createServer } from "http";
-import socketIo from "socket.io";
+const express = require("express");
+const http = require("http");
+const socketIo = require("socket.io");
 const port = process.env.PORT || 5000;
-import index from "./routes/index";
+const index = require("./routes/index");
 const app = express();
 app.use(index);
-const server = createServer(app);
+const server = http.createServer(app);
 const io = socketIo(server); 
 
 
 //DataBase portion
-import { createConnection } from 'mysql2';
-var sessionSQL = createConnection({
+var mysql = require('mysql2');
+var sessionSQL = mysql.createConnection({
   host: 'us-cdbr-east-04.cleardb.com',
   user: 'b57e219bcb3db8',
   password: 'c6190569',
@@ -24,9 +24,9 @@ sessionSQL.connect(function(err){
 })
 
 
-import mathpkg from 'simple-statistics';
+const mathpkg = require('simple-statistics');
 //util classes
-import { Master } from './master.js';
+const {Master} = require('./master.js');
 
 var server_Data = new Master(io,sessionSQL);
 

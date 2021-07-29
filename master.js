@@ -2,17 +2,17 @@
  * Server Objects to hold in-session info.
  *   liveSessions:
  */
-import { liveSessions } from "./utils/livesessions";
-import { QuestionData } from "./utils/questions";
-import { UserData } from "./utils/users";
-import { analyticModels } from "./utils/analyticModels";
+const {liveSessions} = require("./utils/livesessions");
+const {QuestionData} = require("./utils/questions");
+const {UserData} = require("./utils/users");
+const {analyticModels} = require("./utils/analyticModels");
 
 //need to require the other classes
-import { Host } from './server_Functions/Host';
-import { User } from './server_Functions/User';
-import { universal } from './server_Functions/universal';
+const {Host} = require('./server_Functions/Host');
+const {User} = require('./server_Functions/User');
+const {universal} = require('./server_Functions/universal');
 
-import Cryptr from 'cryptr';
+const Cryptr = require('cryptr');
 const prvtKey = '23458gu85469gy680999909809809';
 const encfunc = new Cryptr(prvtKey);
 
@@ -115,4 +115,4 @@ class Master{
 
 
 }
-export default {Master};
+module.exports = {Master};
