@@ -57,7 +57,7 @@ function updateQuestion(sessionID){
     socket.on('checkSessionID',function(data){
       server_Data.checkSessionID(socket,data);
     });
-    socket.on('submit-user-info',function(data){//add something for verifying wether nickname taken on not.
+    socket.on('submit-user-info',function(data){//add something for verifying whether nickname taken on not.
       server_Data.submit_user_info(socket,data);
 
     });
