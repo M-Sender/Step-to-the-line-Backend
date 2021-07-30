@@ -2,7 +2,7 @@
  * Server Objects to hold in-session info. g
  *   liveSessions:
  */
-const {liveSessions} = require("./utils/livesessions");
+const {liveSessions} = require("./utils/liveSessions");
 const {QuestionData} = require("./utils/questions");
 const {UserData} = require("./utils/users");
 const {analyticModels} = require("./utils/analyticModels");
