@@ -1,5 +1,5 @@
 /**
- * Server Objects to hold in-session info.
+ * Server Objects to hold in-session info. g
  *   liveSessions:
  */
 const {liveSessions} = require("./utils/livesessions");
