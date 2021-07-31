@@ -1,4 +1,5 @@
-//import {config} from './config.js';
+//import {config} from './config.js'
+require('dotenv').config();
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
@@ -13,10 +14,10 @@ const io = socketIo(server);
 //DataBase portion
 var mysql = require('mysql2');
 var sessionSQL = mysql.createConnection({
-  host: 'us-cdbr-east-04.cleardb.com',
-  user: 'b57e219bcb3db8',
-  password: 'c6190569',
-  database: 'heroku_66834c3f32d903c'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 sessionSQL.connect(function(err){
   if (err) throw err;

@@ -59,6 +59,7 @@ class User{
       Master.io.to(socket.id).emit('user_grab_analytics',(score));
     }
     static checkSessionID(socket,Master,sessionID){
+      console.log(Master);
       if(Master.LiveSessionData.validateSession(sessionID) && Master.LiveSessionData.sessions[sessionID].joinable){
         Master.io.to(socket.id).emit('checkGood',(sessionID));
       }
