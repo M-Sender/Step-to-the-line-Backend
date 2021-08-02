@@ -50,12 +50,8 @@ class User{
       score['userScore'] = Master.QuestionData.sessions[sessionID].userScore[userName];
       score['userQuart'] = mathpkg.quantileRank(Master.AnalyticData.sessions[sessionID].scores,Master.QuestionData.sessions[sessionID].userScore[userName]); //need user quartile
       score['zipID'] = Master.UserData.sessions[sessionID].zipcode[userName];
-      //acess db and get zip
       score['zipAvg'] = Master.AnalyticData.sessions[sessionID].zipAvgs[Master.UserData.sessions[sessionID].zipcode[userName]];
-      //score['zipPercentileAvg'] = 
       score['dataOBJ'] = Master.AnalyticData.sessions[sessionID];
-      //percentiles
-      //grab all scores and use math to have user do stuff// or make table already and request (could be better)
       Master.io.to(socket.id).emit('user_grab_analytics',(score));
     }
     static checkSessionID(socket,Master,sessionID){

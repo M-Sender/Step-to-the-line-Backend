@@ -34,6 +34,7 @@ class QuestionData { //test
     
               DBConnect.query(queryText, function (err, resultq) {
                   if (err) throw reject(err);
+                  console.log(resultq)
                   var tempQuestion = resultq[qnum.toString()]['question_info'];
                   var tempVal_yes = resultq[qnum.toString()]['question_val_yes'];
                   var tempVal_no = resultq[qnum.toString()]['question_val_no'];

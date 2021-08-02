@@ -1,4 +1,16 @@
 //import {config} from './config.js'
+
+
+//const Dotenv =  require('dotenv-webpack');-------------------
+//
+try{
+  const result = require('dotenv').config();
+  ('error' in result) ? 1/0 : 1+1;
+}
+catch{
+  //dotenv did not work
+
+}
 require('dotenv').config();
 const express = require("express");
 const http = require("http");
@@ -28,6 +40,7 @@ sessionSQL.connect(function(err){
 const mathpkg = require('simple-statistics');
 //util classes
 const {Master} = require('./master.js');
+const { error } = require('console');
 
 var server_Data = new Master(io,sessionSQL);
 
