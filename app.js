@@ -3,15 +3,15 @@
 
 //const Dotenv =  require('dotenv-webpack');-------------------
 //
-try{
+/**try{
   const result = require('dotenv').config();
   ('error' in result) ? 1/0 : 1+1;
 }
 catch{
   //dotenv did not work
 
-}
-require('dotenv').config();
+}*/
+//require('dotenv').config();
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
@@ -26,9 +26,9 @@ const io = socketIo(server);
 //DataBase portion
 var mysql = require('mysql2');
 var sessionSQL = mysql.createConnection({
-  host: process.env.DB_HOST,
+  host: process.env.DB_HOST ,
   user: process.env.DB_USER,
-  password: process.env.DB_PASS,
+  password: process.env.DB_PASS ,
   database: process.env.DB_NAME
 });
 sessionSQL.connect(function(err){
