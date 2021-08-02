@@ -26,10 +26,10 @@ const io = socketIo(server);
 //DataBase portion
 var mysql = require('mysql2');
 var sessionSQL = mysql.createConnection({
-  host: process.env.DB_HOST ,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS ,
-  database: process.env.DB_NAME
+  host: 'ckshdphy86qnz0bj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',//process.env.DB_HOST ,
+  user: 'x2esdoz459l5kob3', //process.env.DB_USER,
+  password: 'kv87k8p6jzj4h8mk',//process.env.DB_PASS ,
+  database: 'gnzd5ehxqqi4dzei'//process.env.DB_NAME
 });
 sessionSQL.connect(function(err){
   if (err) throw err;
