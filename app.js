@@ -8,7 +8,7 @@ catch{
   //dotenv did not work
 
 }*/
-process.env.NODE_ENV !== 'production' ? require('dotenv').config() : pass ;
+process.env.NODE_ENV !== 'production' ? require('dotenv').config() : {/*PASS*/} ;
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
