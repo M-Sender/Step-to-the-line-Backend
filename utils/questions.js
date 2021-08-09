@@ -34,7 +34,6 @@ class QuestionData { //test
     
               DBConnect.query(queryText, function (err, resultq) {
                   if (err) throw reject(err);
-                  console.log(resultq)
                   var tempQuestion = resultq[qnum.toString()]['question_info'];
                   var tempVal_yes = resultq[qnum.toString()]['question_val_yes'];
                   var tempVal_no = resultq[qnum.toString()]['question_val_no'];
@@ -52,7 +51,7 @@ class QuestionData { //test
       }
 
     addSession(sessionID,data, DBConnect){//need way to hold questions for session
-      this.sessions[sessionID] = {questions: [], curQ: -1,qAns:{}, QLim: 0 , userScore: {}, currentQ:'Waiting for host...', useable:true};//(array of q's, curQ,answers) //presort of dict into 
+      this.sessions[sessionID] = {questions: [], curQ: -1,qAns:{}, QLim: 0 , userScore: {}, currentQ:'Waiting for Host...', useable:true};//(array of q's, curQ,answers) //presort of dict into 
       this.getQuestions( sessionID, data, DBConnect);
     }
     removeSession(sessionID){

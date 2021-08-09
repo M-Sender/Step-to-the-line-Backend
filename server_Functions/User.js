@@ -33,15 +33,12 @@ class User{
         Master.io.to(socket.id).emit('user_validate',([!(Master.UserData.sessions[data.sessionID].userNames.includes(data.userName)),Master.encrypt(data.userName)]));
     }
     static add_Answer(socket,Master,data){
-        //var sessionID = decryptCookie(data[0]);
-        //var answer = data[1];
-        //var name = decryptCookie(data[2]);
         var sessionID = data.sessionID;
         var answer = data.answer;
         var name = data.userName;
         Master.LiveSessionData.addAnswer(sessionID);
         Master.QuestionData.addAnswer(sessionID,name,answer);
-        Master.io.to(data[0]).emit('update-answered',(Master.LiveSessionData.sessions[sessionID].numAnswered));
+        Master.io.to(Master.LiveSessionData.sessions[sessionID].hostID).emit('update-answered',(Master.LiveSessionData.sessions[sessionID].numAnswered));
     }
     static analytics(socket,Master,data){
       var score = {};
@@ -55,7 +52,6 @@ class User{
       Master.io.to(socket.id).emit('user_grab_analytics',(score));
     }
     static checkSessionID(socket,Master,sessionID){
-      console.log(Master);
       if(Master.LiveSessionData.validateSession(sessionID) && Master.LiveSessionData.sessions[sessionID].joinable){
         Master.io.to(socket.id).emit('checkGood',(sessionID));
       }

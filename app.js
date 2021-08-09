@@ -1,6 +1,3 @@
-//import {config} from './config.js'
-
-
 //const Dotenv =  require('dotenv-webpack');-------------------
 //
 /**try{
@@ -11,7 +8,7 @@ catch{
   //dotenv did not work
 
 }*/
-//require('dotenv').config();
+process.env.NODE_ENV !== 'production' ? require('dotenv').config() : pass ;
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
@@ -26,10 +23,10 @@ const io = socketIo(server);
 //DataBase portion
 var mysql = require('mysql2');
 var sessionSQL = mysql.createConnection({
-  host: 'ckshdphy86qnz0bj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',//process.env.DB_HOST ,
-  user: 'x2esdoz459l5kob3', //process.env.DB_USER,
-  password: 'kv87k8p6jzj4h8mk',//process.env.DB_PASS ,
-  database: 'gnzd5ehxqqi4dzei'//process.env.DB_NAME
+  host: process.env.DB_HOST ,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS ,
+  database: process.env.DB_NAME
 });
 sessionSQL.connect(function(err){
   if (err) throw err;
@@ -40,7 +37,6 @@ sessionSQL.connect(function(err){
 const mathpkg = require('simple-statistics');
 //util classes
 const {Master} = require('./master.js');
-const { error } = require('console');
 
 var server_Data = new Master(io,sessionSQL);
 
