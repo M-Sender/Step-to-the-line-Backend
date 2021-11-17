@@ -1,6 +1,6 @@
 class UserData {
     constructor () {//have constructor create object for each session, put into dictionary of sessions, hold everything, delete after
-        this.sessions = {};
+        this.sessions = {};//test vscode
     }
     addSession(sessionID){
         this.sessions[sessionID] = {Male:0,Female:0,Other:0,zipcode:{},zipcodeborn:{},userNames:[]};
